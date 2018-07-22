@@ -109,7 +109,25 @@ body,html,h1 {
   position: fixed;
   bottom: 60px;
   right: 10px;
-  background-image: url("../img/plusicon.png");
+  border: none;
+  border-radius: 50%;
+  background-color: #39C1CE;
+  font-size: 3em;
+  color: #263672;
   height: 70px;
   width: 70px;
+  box-shadow: 2px 2px 10px #263672;
 }
+
+.btnAdd:active {
+  box-shadow: none;
+}
+
+button {
+  outline: 0;
+}
+
+
+/*
+user-select: none;
+*/
