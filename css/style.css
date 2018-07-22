@@ -1,0 +1,90 @@
+body,html,h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  padding: 0px;
+  margin: 0;
+  margin-top: 80px;
+}
+
+.balance,.income,.expense {
+  position: fixed;
+  top: 0;
+  background-color: #263672;
+  color: #39C1CE;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.listview li, ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hline {
+    width: 100%;
+    background-color: gainsboro;
+    height: 2px;
+}
+
+.item-content {
+  margin: 0;
+  padding: 0;
+}
+
+.listItem {
+  display: flex;
+  flex-wrap: wrap;
+  height: 7vh;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.listimg {
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+  margin: 5px;
+}
+
+.li_header {
+  width: 80%;
+  margin: 0;
+  height: 30px;
+  padding: 0;
+  font-size: 1.5em;
+  color: #263672;
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 30px;
+  font-size: 1em;
+  font-weight: lighter;
+}
+
+.details p {
+  margin: 0;
+  padding: 0;
+}
+
+.expage {
+  display: none;
+}
+
+.inpage {
+  display: none;
+}
+
+.balpage {
+  display: none;
+}

@@ -9,26 +9,55 @@
   <title>EMCP</title>
 </head>
 <body>
-  <header class="header">
-    <h1 class="header__title">Expense Manager</h1>
-  </header>
-
-  <nav class="nav">
-  ...
-  </nav>
 
   <main class="main">
-  ...
+    <div id="balpage" class="">
+      <div class="balance">
+        <h1>Balance : 10000</h1>
+      </div>
+      <ul class="listview">
+        <li class="listItem">
+          <img class="listimg" src="./img/incarrow.png" alt="income">
+          <div class="item-content">
+            <p class="li_header">McDonald's</p>
+            <div class="details">
+              <p>Date : 29/06/98 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : 10000</p>
+            </div>
+          </div>
+          <div class="hline"></div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="inpage" class="inpage">
+      <div class="income">
+        <h1>Total Income : </h1>
+      </div>
+      <ul class="listview">
+        <li class="listItem">
+
+        </li>
+      </ul>
+    </div>
+
+    <div id="expage" class="expage">
+      <div class="expense">
+        <h1>Total Expense : </h1>
+      </div>
+      <ul class="listview">
+        <li class="listItem">
+
+        </li>
+      </ul>
+    </div>
+
   </main>
 
-  <div class="dialog-container">
-  ...
-  </div>
+  <nav class="nav">
 
-  <div class="loader">
-    <!-- Show a spinner or placeholders for content -->
-  </div>
+  </nav>
+
 </body>
-<script type="text/javascript" src="./js1/sw.js"></script>
-<script type="text/javascript" src="./js1/main.js"></script>
+<script type="text/javascript" src="./js/sw.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </html>
