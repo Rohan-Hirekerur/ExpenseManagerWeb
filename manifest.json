@@ -1,0 +1,21 @@
+{
+  "name": "Expense Manaer",
+  "short_name": "EMCP",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "theme_color": "#263672",
+  "background_color": "#111111",
+  "icons": [
+    {
+      "src": "./img/ricon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+
+    {
+      "src": "./img/ricon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
