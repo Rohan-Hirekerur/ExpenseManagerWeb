@@ -1,12 +1,13 @@
 body,html,h1 {
   margin: 0;
   padding: 0;
+  opacity: 1;
 }
 
 .main {
   padding: 0px;
   margin: 0;
-  margin-top: 80px;
+  /* top: 80px;*/
   margin-bottom: 50px;
 }
 
@@ -22,9 +23,22 @@ body,html,h1 {
   border: none;
 }
 
+.show {
+  position: absolute;
+  width: 100%;
+  bottom: 65px;
+  top: 65px;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
 .listview li, ul {
   list-style: none;
   padding: 0;
+}
+
+.listview {
+  padding-bottom: 50px;
 }
 
 .hline {
@@ -80,7 +94,8 @@ body,html,h1 {
 }
 
 .hide {
-  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .nav {
@@ -90,6 +105,7 @@ body,html,h1 {
   width: 100%;
   position: fixed;
   bottom: 0;
+  background-color: #263672;
 }
 
 .navButton {
@@ -98,11 +114,19 @@ body,html,h1 {
   width: 33.333%;
   border: none;
   font-size: 1.3em;
+  border-radius: 50px;
+  user-select: none;
+  transition-timing-function: ease-in-out;
+  -webkit-transition: border-radius 0.5s,background-color 0.5s, -webkit-transform 0.5s;
+    transition: border-radius 0.5s,background-color 0.5s, transform 0.5s;
 }
 
 .active {
   background-color: #39C1CE;
   color: #263672;
+
+  -webkit-transform: rotate(10deg);
+    transform: translateY(-5px);
 }
 
 .btnAdd {
