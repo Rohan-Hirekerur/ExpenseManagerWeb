@@ -1,0 +1,94 @@
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  background-color: #263672;
+  color: #39C1CE;
+  margin: auto;
+}
+
+.head-bar {
+  background: #263672;
+  height: 7vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.head-bar h1 {
+  text-align: center;
+  margin: auto;
+  color: #39C1CE;
+  font-size-adjust: auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #39C1CE;
+  width: 100%;
+}
+
+.card {
+  margin: auto;
+  margin-top: 30vh;
+  padding: 3px 10px;
+  text-align: center;
+}
+.card-reg {
+  margin: auto;
+  margin-top: 27vh;
+  padding: 3px 10px;
+  text-align: center;
+}
+
+.inputs {
+  margin: auto;
+  margin-top: 15px;
+}
+.input-box {
+  width: 90%;
+  background-color: #263672;
+  color: #39C1CE;
+  padding-left: 10px;
+  height: 5vh;
+  margin: 3px;
+  /* border: 0; */
+  border: 1px solid #39C1CE;
+  border-radius: 30px;
+}
+
+::placeholder {
+  color: #6b82ac;
+}
+
+.tex {
+  color: white;
+}
+
+a {
+  color: #39C1CE;
+  text-decoration: none;
+}
+
+.sign-but {
+  width: 90%;
+  background-color: #39C1CE;
+  color: #263672;
+  height: 5vh;
+  padding: 2px;
+  margin: 3px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 30px;
+}
+
+p {
+  color: #39C1CE;
+}
+
+fieldset {
+  border: 1px solid #39C1CE;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+input {
+  outline: 0;
+}
