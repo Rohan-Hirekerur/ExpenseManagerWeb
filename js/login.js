@@ -1,11 +1,4 @@
-var config = {
-  apiKey: "AIzaSyCxQ1dbfI3oBXVKSL_NDnrPulwB8gcPMsc",
-  authDomain: "expense-manager-fc1cd.firebaseapp.com",
-  databaseURL: "https://expense-manager-fc1cd.firebaseio.com",
-  projectId: "expense-manager-fc1cd",
-  storageBucket: "",
-  messagingSenderId: "916352200202"
-};
+
 firebase.initializeApp(config);
 var database = firebase.database();
 
