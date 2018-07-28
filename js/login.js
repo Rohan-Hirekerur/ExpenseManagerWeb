@@ -7,6 +7,8 @@ var config = {
   messagingSenderId: "916352200202"
 };
 firebase.initializeApp(config);
+var database = firebase.database();
+
 
 $("#submit").click(function(event){
   var email = $("#email-box").val();
@@ -20,9 +22,15 @@ $("#submit").click(function(event){
     alert('Please enter a password.');
     return;
   }
+
+  $("#card").toggleClass("hide");
+  $("#loader-parent").toggleClass("hide");
+
   firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
     window.location.href = 'index.html';
   }).catch(function(error) {
+    $("#card").toggleClass("hide");
+    $("#loader-parent").toggleClass("hide");
     var errorCode = error.code;
     var errorMessage = error.message;
     if (errorCode === 'auth/wrong-password') {
@@ -49,9 +57,17 @@ $("a.forgot").click(function(){
     return;
   }
   console.log("forgot-click" + email);
+
+  $("#card").toggleClass("hide");
+  $("#loader-parent").toggleClass("hide");
+
   firebase.auth().sendPasswordResetEmail(email).then(function() {
     alert('Password Reset Email Sent! \nFollow the instructions in the mail to reset your password.');
+    $("#card").toggleClass("hide");
+    $("#loader-parent").toggleClass("hide");
   }).catch(function(error) {
+    $("#card").toggleClass("hide");
+    $("#loader-parent").toggleClass("hide");
     var errorCode = error.code;
     var errorMessage = error.message;
     if (errorCode == 'auth/invalid-email') {
@@ -61,6 +77,8 @@ $("a.forgot").click(function(){
     }
     console.log(error);
   });
+
+
 });
 
 $("a.tex").click(function(){
@@ -76,12 +94,26 @@ $("a.tex").click(function(){
     return;
   }
 
+  $("#card").toggleClass("hide");
+  $("#loader-parent").toggleClass("hide");
+
   firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+    var userId = firebase.auth().currentUser.uid;
+    firebase.database().ref('users/' + userId).set({
+    email: email,
+    balance: 0,
+    income: 0,
+    expenses: 0
+  });
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
       firebase.auth().currentUser.sendEmailVerification().then(function() {
-        alert('Email Verification Sent!');
+        alert('Email Verification Sent! Check your mail !');
+        $("#card").toggleClass("hide");
+        $("#loader-parent").toggleClass("hide");
       });
     }).catch(function(error) {
+      $("#card").toggleClass("hide");
+      $("#loader-parent").toggleClass("hide");
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode === 'auth/wrong-password') {
@@ -93,6 +125,8 @@ $("a.tex").click(function(){
       return;
     });
   }).catch(function(error) {
+    $("#card").toggleClass("hide");
+    $("#loader-parent").toggleClass("hide");
     var errorCode = error.code;
     var errorMessage = error.message;
     if (errorCode == 'auth/weak-password') {

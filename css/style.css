@@ -98,6 +98,10 @@ body,html,h1 {
   transition: opacity 0.5s;
 }
 
+.cover {
+  display: none;
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -143,6 +147,20 @@ body,html,h1 {
   box-shadow: 2px 2px 10px #263672;
 }
 
+.btnOut {
+  position: fixed;
+  bottom: 60px;
+  left: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: #39C1CE;
+  font-size: 3em;
+  color: #263672;
+  height: 70px;
+  width: 70px;
+  box-shadow: 2px 2px 10px #263672;
+}
+
 .btnAdd:active {
   box-shadow: none;
 }
@@ -151,6 +169,9 @@ button {
   outline: 0;
 }
 
+.addPage {
+  margin: auto;
+}
 
 /*
 user-select: none;

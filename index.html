@@ -10,65 +10,44 @@
 </head>
 <body>
 
-  <main class="main">
+  <main id="main" class="main">
     <div class="balance">
     </div>
     <div id="inpage" class="show hide">
       <div class="income">
-        <h1>Income : </h1>
+        <h1 id="in-box">Income : </h1>
       </div>
-      <ul class="listview">
-        <li class="listItem">
-          <img class="listimg" src="./img/incarrow.png" alt="income">
-          <div class="item-content">
-            <p class="li_header">McDonald's</p>
-            <div class="details">
-              <p>Date : 29/06/98 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : 10000</p>
-            </div>
-          </div>
-          <div class="hline"></div>
-        </li>
+      <ul id="inlist" class="listview">
       </ul>
     </div>
 
     <div id="balpage" class="show">
       <div class="balance">
-        <h1>Balance : 10000</h1>
+        <h1 id="bal-box">Balance : </h1>
       </div>
-      <ul class="listview">
-        <li class="listItem">
-          <img class="listimg" src="./img/incarrow.png" alt="income">
-          <div class="item-content">
-            <p class="li_header">McDonald's</p>
-            <div class="details">
-              <p>Date : 29/06/98 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : 10000</p>
-            </div>
-          </div>
-          <div class="hline"></div>
-        </li>
+      <ul id="ballist"class="listview">
       </ul>
     </div>
 
     <div id="expage" class="show hide">
       <div class="expense">
-        <h1>Expense : </h1>
+        <h1 id="ex-box">Expense : </h1>
       </div>
-      <ul class="listview">
-        <li class="listItem">
-          <img class="listimg" src="./img/incarrow.png" alt="income">
-          <div class="item-content">
-            <p class="li_header">McDonald's</p>
-            <div class="details">
-              <p>Date : 29/06/98 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : 10000</p>
-            </div>
-          </div>
-          <div class="hline"></div>
-        </li>
+      <ul id="exlist" class="listview">
       </ul>
     </div>
 
   </main>
+  <div class="addPage cover">
+    <input id="title-box" type="text" name="Title" value="">
+    <input id="amount-box" type="number" name="Amount" value="">
+    <input id="income-box" type="radio" name="Type" value="Income">
+    <input id="expense-box" type="radio" name="Type" value="Expenses" checked>
+    <button id="cancel" type="button" name="cancel">Cancel</button>
+    <button id="done" type="button" name="done">Done</button>
+  </div>
 
+  <button id="logout" class="btnOut" type="button" name="button">O</button>
   <button id="add" class="btnAdd"type="button" name="btnAdd">+</button>
 
   <nav class="nav">
