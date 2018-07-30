@@ -204,8 +204,8 @@ button {
 }
 
 .btns {
-  width: 49%;
-
+  width: 40%;
+  margin: auto;
   margin-top: 20px;
   background-color: #39C1CE;
   border-radius: 30px;

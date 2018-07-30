@@ -55,42 +55,74 @@ firebase.auth().onAuthStateChanged(function(user) {
 $("#add").click(function(){
   $("#main").toggleClass("cover");
   $("#addPage").toggleClass("cover");
+  $("#add").toggleClass("cover");
+  $("#btnInc").toggleClass("cover");
+  $("#btnBal").toggleClass("cover");
+  $("#btnExp").toggleClass("cover");
+  $("#nav").toggleClass("cover");
+  $("#logout").toggleClass("cover");
 });
 $("#cancel").click(function(){
   $("#main").toggleClass("cover");
   $("#addPage").toggleClass("cover");
+  $("#add").toggleClass("cover");
+  $("#nav").toggleClass("cover");
+  $("#logout").toggleClass("cover");
+  $("#btnInc").toggleClass("cover");
+  $("#btnBal").toggleClass("cover");
+  $("#btnExp").toggleClass("cover");
 });
 
 $("#done").click(function(){
   var entryTitle = $("#title-box").val();
   var entryAmount = Number($("#amount-box").val());
   var income = $("#income-box").prop('checked');
+
+  if (entryTitle.length < 2) {
+    alert('Please enter a title');
+    return;
+  }
+  if (entryAmount < 0 || entryAmount == undefined) {
+    alert('Please enter valid amount');
+    return;
+  }
+
   var entry = {
     title:  entryTitle,
     income: income,
     amount: entryAmount,
     date: "6/07/2018"
   };
+
   var newEntryKey = firebase.database().ref('/users/' + userId).push().key;
   var updates = {};
   var info = firebase.database().ref('users/' + userId);
+
   info.once('value', function(snapshot){
     user = snapshot.val();
     console.log(user);
     updates['/entries/' + newEntryKey] = entry;
+
     if(entry.income) {
       updates["/balance"] = Number(user.balance) + Number(entry.amount);
       updates["/income"] = Number(user.income) + Number(entry.amount);
     }
+
     else {
       updates["/balance"] = Number(user.balance) - Number(entry.amount);
       updates["/expenses"] = Number(user.expenses) + Number(entry.amount);
     }
+
     return firebase.database().ref('/users/' + userId).update(updates);
   });
   $("#main").toggleClass("cover");
   $("#addPage").toggleClass("cover");
-
+  $("#add").toggleClass("cover");
+  $("#nav").toggleClass("cover");
+  $("#logout").toggleClass("cover");
+  $("#btnInc").toggleClass("cover");
+  $("#btnBal").toggleClass("cover");
+  $("#btnExp").toggleClass("cover");
 });
 
 $("#logout").click(function(){
