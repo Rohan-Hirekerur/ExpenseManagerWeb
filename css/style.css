@@ -169,8 +169,48 @@ button {
   outline: 0;
 }
 
-.addPage {
+.input-box {
+  width: 95vw;
+  height: 30px;
+  background-color: inherit;
+  outline: 0;
+  padding: 10px;
+  border: 1px solid #39C1CE;
+  border-radius: 30px;
+  color: #39C1CE;
   margin: auto;
+  margin-bottom: 15px;
+}
+
+.radio {
+  width: 50%;
+  margin: auto;
+}
+
+::placeholder {
+  color: #39C1CE;
+}
+
+.addPage {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  color: #39C1CE;
+  bottom: 0;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  background-color: #263672;
+  margin: auto;
+}
+
+.btns {
+  width: 49%;
+
+  margin-top: 20px;
+  background-color: #39C1CE;
+  border-radius: 30px;
+  padding: 15px;
+  border: 0;
 }
 
 /*

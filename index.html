@@ -38,13 +38,19 @@
     </div>
 
   </main>
-  <div class="addPage cover">
-    <input id="title-box" type="text" name="Title" value="">
-    <input id="amount-box" type="number" name="Amount" value="">
-    <input id="income-box" type="radio" name="Type" value="Income">
-    <input id="expense-box" type="radio" name="Type" value="Expenses" checked>
-    <button id="cancel" type="button" name="cancel">Cancel</button>
-    <button id="done" type="button" name="done">Done</button>
+  <div id="addPage" class="addPage cover">
+    <input class="input-box" id="title-box" type="text" name="Title" value="" placeholder="Title">
+    <input class="input-box" id="amount-box" type="number" name="Amount" value="" placeholder="Amount">
+    <div class="radio">
+      <input class="input-radio" id="income-box" type="radio" name="Type" value="Income" >
+      <label for="income-box">Income</label>
+    </div>
+    <div class="radio">
+      <input class="input-radio" id="expense-box" type="radio" name="Type" value="Expense" checked>
+      <label for="expense-box">Expense</label>
+    </div>
+    <button id="cancel" class="btns" type="button" name="cancel">Cancel</button>
+    <button id="done" class="btns" type="button" name="done">Done</button>
   </div>
 
   <button id="logout" class="btnOut" type="button" name="button">O</button>

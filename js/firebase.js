@@ -53,12 +53,22 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 $("#add").click(function(){
-  //$("#main").toggleClass("cover");
-  //$("#addPage").removeClass("cover");
+  $("#main").toggleClass("cover");
+  $("#addPage").toggleClass("cover");
+});
+$("#cancel").click(function(){
+  $("#main").toggleClass("cover");
+  $("#addPage").toggleClass("cover");
+});
+
+$("#done").click(function(){
+  var entryTitle = $("#title-box").val();
+  var entryAmount = Number($("#amount-box").val());
+  var income = $("#income-box").prop('checked');
   var entry = {
-    title:  "MSEB Bill",
-    income: false,
-    amount: 5257,
+    title:  entryTitle,
+    income: income,
+    amount: entryAmount,
     date: "6/07/2018"
   };
   var newEntryKey = firebase.database().ref('/users/' + userId).push().key;
@@ -69,16 +79,17 @@ $("#add").click(function(){
     console.log(user);
     updates['/entries/' + newEntryKey] = entry;
     if(entry.income) {
-      updates["/balance"] = user.balance + entry.amount;
-      updates["/income"] = user.income + entry.amount;
+      updates["/balance"] = Number(user.balance) + Number(entry.amount);
+      updates["/income"] = Number(user.income) + Number(entry.amount);
     }
     else {
-      updates["/balance"] = user.balance - entry.amount;
-      updates["/expenses"] = user.expenses + entry.amount;
+      updates["/balance"] = Number(user.balance) - Number(entry.amount);
+      updates["/expenses"] = Number(user.expenses) + Number(entry.amount);
     }
     return firebase.database().ref('/users/' + userId).update(updates);
   });
-
+  $("#main").toggleClass("cover");
+  $("#addPage").toggleClass("cover");
 
 });
 
