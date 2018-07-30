@@ -25,13 +25,18 @@ firebase.auth().onAuthStateChanged(function(user) {
       entry = snap.val();
       console.log("added" + entry.title);
       if(entry.income) {
-        $("#ballist").prepend('<li class="listItem"><img class="listimg" src="./img/incarrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
-        $("#inlist").prepend('<li class="listItem"><img class="listimg" src="./img/incarrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
+        $("#ballist").prepend('<li id="'+snap.key+'" class="listItem"><img class="listimg" src="./img/incarrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
+        $("#inlist").prepend('<li id="'+snap.key+'"class="listItem"><img class="listimg" src="./img/incarrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
       }
       else {
-        $("#ballist").prepend('<li class="listItem"><img class="listimg" src="./img/exparrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
-        $("#exlist").prepend('<li class="listItem"><img class="listimg" src="./img/exparrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
+        $("#ballist").prepend('<li id="'+snap.key+'"class="listItem"><img class="listimg" src="./img/exparrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
+        $("#exlist").prepend('<li id="'+snap.key+'"class="listItem"><img class="listimg" src="./img/exparrow.png" alt="income"><div class="item-content"><p class="li_header">'+entry.title+'</p><div class="details"><p>Date : '+entry.date+' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Amount : '+entry.amount+'</p></div></div><div class="hline"></div></li>')
       }
+    });
+
+    entriesInDB.on('child_removed', function(snap){
+      console.log("Removed " + snap.key);
+      location.reload();
     });
 
     user.on('value', function(snap){
@@ -87,11 +92,14 @@ $("#done").click(function(){
     return;
   }
 
+  var d = new Date();
+  var date = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear();
+
   var entry = {
     title:  entryTitle,
     income: income,
     amount: entryAmount,
-    date: "6/07/2018"
+    date: date
   };
 
   var newEntryKey = firebase.database().ref('/users/' + userId).push().key;

@@ -197,15 +197,14 @@ button {
   top: 0;
   color: #39C1CE;
   bottom: 0;
-  padding-top: 50%;
-  padding-bottom: 50%;
+  padding-top: 30vh;
   background-color: #263672;
   margin: auto;
 }
 
 .btns {
   width: 40%;
-  margin: auto;
+  margin-left: 7%;
   margin-top: 20px;
   background-color: #39C1CE;
   border-radius: 30px;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Expense Manager</title>
+</head>
+<body>
+
+  <main id="main" class="main">
+    <div class="balance">
+    </div>
+    <div id="inpage" class="show hide">
+      <div class="income">
+        <h1 id="in-box">Income : </h1>
+      </div>
+      <ul id="inlist" class="listview">
+      </ul>
+    </div>
+
+    <div id="balpage" class="show">
+      <div class="balance">
+        <h1 id="bal-box">Balance : </h1>
+      </div>
+      <ul id="ballist"class="listview">
+      </ul>
+    </div>
+
+    <div id="expage" class="show hide">
+      <div class="expense">
+        <h1 id="ex-box">Expense : </h1>
+      </div>
+      <ul id="exlist" class="listview">
+      </ul>
+    </div>
+
+  </main>
+  <div id="addPage" class="addPage cover">
+    <input class="input-box" id="title-box" type="text" name="Title" value="" placeholder="Title">
+    <input class="input-box" id="amount-box" type="number" name="Amount" value="" placeholder="Amount">
+    <div class="radio">
+      <input class="input-radio" id="income-box" type="radio" name="Type" value="Income" >
+      <label for="income-box">Income</label>
+    </div>
+    <div class="radio">
+      <input class="input-radio" id="expense-box" type="radio" name="Type" value="Expense" checked>
+      <label for="expense-box">Expense</label>
+    </div>
+    <button id="cancel" class="btns" type="button" name="cancel">Cancel</button>
+    <button id="done" class="btns" type="button" name="done">Done</button>
+  </div>
+
+  <button id="logout" class="btnOut" type="button" name="button">x</button>
+  <button id="add" class="btnAdd"type="button" name="btnAdd">+</button>
+
+  <nav id="nav" class="nav">
+    <button  class="navButton" type="button" id="btnInc">Incomes</button>
+    <button  class="navButton active" type="button" id="btnBal">All</button>
+    <button  class="navButton" type="button" id="btnExp">Expenses</button>
+  </nav>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+<script type="text/javascript" src="./js/sw.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/nav.js"></script>
+<script type="text/javascript" src="./js/login.js"></script>
+<script type="text/javascript" src="./js/firebase.js"></script>
+</html>
